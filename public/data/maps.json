@@ -1,0 +1,12 @@
+[
+  {
+    "year": 1938,
+    "file": "countries_1938.geojson",
+    "name": "Mapa de 1938"
+  },
+  {
+    "year": 2025,
+    "file": "countries_2025.geojson",
+    "name": "Mapa de 2025"
+  }
+]
