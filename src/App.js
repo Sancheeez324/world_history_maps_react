@@ -3,8 +3,8 @@ import React, { useState, useEffect } from 'react';
 import GlobeScreen from './components/GlobeScreen';
 import MapsScreen from './components/MapsScreen';
 import MapDetailScreen from './components/MapDetailScreen';
+import CivilizationsScreen from './components/CivilizationsScreen';
 import 'leaflet/dist/leaflet.css';
-
 
 const translations = {
   es: {
@@ -17,6 +17,7 @@ const translations = {
     modeClear: 'Modo Claro',
     modeDark: 'Modo Oscuro',
     language: 'es',
+    civilizations: 'Civilizaciones'
   },
   en: {
     appName: 'World History Maps',
@@ -28,6 +29,7 @@ const translations = {
     modeClear: 'Light Mode',
     modeDark: 'Dark Mode',
     language: 'en',
+    civilizations: 'Civilizations'
   },
 };
 
@@ -62,7 +64,7 @@ function App() {
     if (currentScreen === 'mapDetail') {
       setCurrentScreen('maps');
       setSelectedMapData(null);
-    } else if (currentScreen === 'maps') {
+    } else if (currentScreen === 'maps' || currentScreen === 'civilizations') {
       setCurrentScreen('globe');
     }
   };
@@ -70,10 +72,16 @@ function App() {
   return (
     <div className={`min-h-screen flex flex-col ${darkMode ? 'bg-gray-900 text-white' : 'bg-gray-100 text-gray-900'} transition-colors duration-300`}>
       <header className={`py-4 px-6 flex justify-between items-center shadow-md ${darkMode ? 'bg-gray-800' : 'bg-white'}`}>
-        <h1 className="text-2xl font-bold flex items-center">
-          <span className="mr-2 text-3xl">🌍</span>
-          {currentText.appName}
-        </h1>
+        <button onClick={handleBack} className="flex items-center focus:outline-none">
+          <img
+            src="/assets/earth.png"
+            alt="Volver al inicio"
+            className="w-8 h-8 mr-3 hover:scale-110 transition-transform"
+          />
+          <h1 className="text-2xl font-bold">
+            {currentText.appName}
+          </h1>
+        </button>
 
         <div className="flex items-center space-x-4">
           <div className="flex items-center space-x-2">
@@ -94,9 +102,7 @@ function App() {
           </div>
 
           <label htmlFor="darkModeToggle" className="flex items-center cursor-pointer">
-            <span className={`mr-2 text-sm font-medium ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
-              {darkMode ? currentText.modeDark : currentText.modeClear}
-            </span>
+            <span className={`mr-2 text-sm font-medium ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>{darkMode ? currentText.modeDark : currentText.modeClear}</span>
             <div className="relative">
               <input
                 type="checkbox"
@@ -127,12 +133,20 @@ function App() {
           <MapsScreen
             setCurrentScreen={setCurrentScreen}
             onSelectMap={handleMapSelect}
+            language={language}
           />
         )}
         {currentScreen === 'mapDetail' && selectedMapData && (
           <MapDetailScreen
             selectedMapYear={selectedMapData.year}
             setCurrentScreen={setCurrentScreen}
+            language={language}
+          />
+        )}
+        {currentScreen === 'civilizations' && (
+          <CivilizationsScreen
+            setCurrentScreen={setCurrentScreen}
+            language={language}
           />
         )}
       </main>
