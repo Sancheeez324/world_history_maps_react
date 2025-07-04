@@ -3,8 +3,8 @@ import React, { useState, useEffect } from 'react';
 import GlobeScreen from './components/GlobeScreen';
 import MapsScreen from './components/MapsScreen';
 import MapDetailScreen from './components/MapDetailScreen';
-import CivilizationsScreen from './components/CivilizationsScreen';
 import ContinentsScreen from './components/ContinentsScreen';
+import EuropeanCivilizations from './components/EuropeanCivilizations'; // ✅ Nuevo
 import 'leaflet/dist/leaflet.css';
 
 const translations = {
@@ -65,7 +65,11 @@ function App() {
     if (currentScreen === 'mapDetail') {
       setCurrentScreen('maps');
       setSelectedMapData(null);
-    } else if (currentScreen === 'maps' || currentScreen === 'civilizations' || currentScreen === 'continents') {
+    } else if (
+      currentScreen === 'maps' ||
+      currentScreen === 'continents' ||
+      currentScreen === 'european_civs'
+    ) {
       setCurrentScreen('globe');
     }
   };
@@ -144,14 +148,14 @@ function App() {
             language={language}
           />
         )}
-        {currentScreen === 'civilizations' && (
-          <CivilizationsScreen
+        {currentScreen === 'continents' && (
+          <ContinentsScreen
             setCurrentScreen={setCurrentScreen}
             language={language}
           />
         )}
-        {currentScreen === 'continents' && (
-          <ContinentsScreen
+        {currentScreen === 'european_civs' && (
+          <EuropeanCivilizations
             setCurrentScreen={setCurrentScreen}
             language={language}
           />

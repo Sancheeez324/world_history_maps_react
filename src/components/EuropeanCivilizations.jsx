@@ -17,7 +17,7 @@ const eras = [
       { name: 'Esparta', img: 'esparta.png', years: 'c. 900–192 a.C.' },
       { name: 'Imperio Macedónico', img: 'macedonian_empire.png', years: 'c. 336–323 a.C.' },
       { name: 'Roma', img: 'roma.png', years: 'c. 753 a.C.–476 d.C.' },
-      { name: 'Roma Occidental', img: 'roma_occidental.png', years: '285–476 d.C.' },
+      { name: 'Roma Occidental', img: 'roma_occidente.png', years: '285–476 d.C.' },
     ],
   },
   {
