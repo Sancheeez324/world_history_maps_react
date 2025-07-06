@@ -1,4 +1,3 @@
-// src/components/EuropeanCivilizations.jsx
 import React from 'react';
 
 const eras = [
@@ -75,7 +74,7 @@ function EuropeanCivilizations({ setCurrentScreen }) {
             {era.civs.map((civ) => (
               <button
                 key={civ.name}
-                className="flex flex-col items-center bg-white dark:bg-gray-800 p-3 rounded-lg shadow-md hover:shadow-xl hover:scale-105 transition"
+                className="flex flex-col items-center bg-white dark:bg-gray-800 p-4 rounded-lg shadow-md hover:shadow-xl hover:scale-105 transition"
                 onClick={() => alert(`${civ.name} (${civ.years})`)}
               >
                 <img
@@ -83,8 +82,12 @@ function EuropeanCivilizations({ setCurrentScreen }) {
                   alt={civ.name}
                   className="w-16 h-16 object-contain mb-2"
                 />
-                <span className="font-medium">{civ.name}</span>
-                <span className="text-sm text-gray-600 dark:text-gray-400">{civ.years}</span>
+                <span className="font-medium text-gray-900 dark:text-white text-center">
+                  {civ.name}
+                </span>
+                <span className="text-sm text-gray-600 dark:text-gray-400 text-center">
+                  {civ.years}
+                </span>
               </button>
             ))}
           </div>

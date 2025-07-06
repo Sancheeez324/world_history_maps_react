@@ -105,24 +105,12 @@ function CivilizationsScreen({ language, setCurrentScreen }) {
             </button>
           ))}
         </div>
-
-        <p className="mt-10 text-sm text-gray-500 dark:text-gray-400">
-          🌐 {getName('Ilustraciones de continentes por', 'Continent illustrations by')}{' '}
-          <a
-            href="https://www.freepik.com/author/amoghdesign"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="underline hover:text-blue-500"
-          >
-            amoghdesign
-          </a>{' '}– Freepik
-        </p>
       </div>
     );
   }
 
   return (
-    <div className="text-center max-w-6xl mx-auto">
+    <div className="text-center max-w-6xl mx-auto p-4">
       <button
         onClick={() => setSelectedContinent(null)}
         className="mb-6 text-blue-600 underline hover:text-blue-800"
@@ -130,34 +118,33 @@ function CivilizationsScreen({ language, setCurrentScreen }) {
         ← {getName('Volver a Continentes', 'Back to Continents')}
       </button>
 
-      <h2 className="text-4xl font-bold mb-6">
+      <h2 className="text-4xl font-bold mb-6 text-blue-400">
         🏛 {getName('Civilizaciones de Europa', 'European Civilizations')}
       </h2>
 
       {europeanPeriods.map((period) => (
         <div key={period.titleEs} className="mb-12">
-          <h3 className="text-2xl font-semibold mb-4 underline">{getName(period.titleEs, period.titleEn)}</h3>
-
+          <h3 className="text-2xl font-semibold mb-4 underline">
+            {getName(period.titleEs, period.titleEn)}
+          </h3>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
             {period.civs.map((civ) => (
               <button
                 key={civ.name}
-                onClick={() => alert(`Más información sobre ${civ.name}`)}
-                className="bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg p-4 shadow hover:shadow-lg transition flex flex-col items-center justify-center"
+                onClick={() => alert(`${civ.name} (${civ.years})`)}
+                className="bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg p-4 shadow hover:shadow-lg transition text-center flex flex-col items-center space-y-2 min-h-[160px] justify-between"
               >
                 <img
                   src={civ.image}
                   alt={civ.name}
-                  className="w-20 h-20 object-contain mb-3"
+                  className="w-20 h-20 object-contain"
                 />
-                <div className="text-center">
-                  <div className="text-sm font-semibold text-gray-800 dark:text-white mb-1">
-                    {civ.name}
-                  </div>
-                  <div className="text-xs text-gray-500 dark:text-gray-300">
-                    {civ.years}
-                  </div>
-                </div>
+                <span className="block text-sm font-semibold text-gray-800 dark:text-white text-center">
+                  {civ.name}
+                </span>
+                <span className="block text-xs text-gray-500 dark:text-gray-300 text-center">
+                  {civ.years}
+                </span>
               </button>
             ))}
           </div>

@@ -102,7 +102,7 @@ function GlobeScreen({ setCurrentScreen, currentText }) {
             {currentText?.exploreMaps || 'Explorar Mapas'}
           </button>
           <button
-            onClick={() => setCurrentScreen?.('continents')}
+            onClick={() => setCurrentScreen?.('european_civs')}
             className="px-8 py-4 bg-yellow-500 hover:bg-yellow-600 text-white font-bold rounded-full shadow-lg transform transition duration-300 hover:scale-105"
           >
             {currentText?.civilizations || 'Civilizaciones'}
