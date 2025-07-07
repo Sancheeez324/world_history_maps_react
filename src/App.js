@@ -4,7 +4,11 @@ import GlobeScreen from './components/GlobeScreen';
 import MapsScreen from './components/MapsScreen';
 import MapDetailScreen from './components/MapDetailScreen';
 import ContinentsScreen from './components/ContinentsScreen';
-import EuropeanCivilizations from './components/EuropeanCivilizations'; // ✅ Nuevo
+import {
+  EuropeanCivilizations,
+  AsianCivilizations
+} from './components/ContinentsCivis';
+
 import 'leaflet/dist/leaflet.css';
 
 const translations = {
@@ -51,11 +55,6 @@ function App() {
 
   const currentText = translations[language];
 
-  const goToMapsScreen = () => {
-    setCurrentScreen('maps');
-    setSelectedMapData(null);
-  };
-
   const handleMapSelect = (mapData) => {
     setSelectedMapData(mapData);
     setCurrentScreen('mapDetail');
@@ -68,7 +67,8 @@ function App() {
     } else if (
       currentScreen === 'maps' ||
       currentScreen === 'continents' ||
-      currentScreen === 'european_civs'
+      currentScreen === 'european_civs' ||
+      currentScreen === 'asian_civs'
     ) {
       setCurrentScreen('globe');
     }
@@ -158,6 +158,14 @@ function App() {
           <EuropeanCivilizations
             setCurrentScreen={setCurrentScreen}
             language={language}
+            currentText={currentText}
+          />
+        )}
+        {currentScreen === 'asian_civs' && (
+          <AsianCivilizations
+            setCurrentScreen={setCurrentScreen}
+            language={language}
+            currentText={currentText}
           />
         )}
       </main>

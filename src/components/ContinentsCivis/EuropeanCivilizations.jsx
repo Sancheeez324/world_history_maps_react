@@ -1,4 +1,22 @@
+// src/components/ContinentsCivis/EuropeanCivilizations.jsx
 import React from 'react';
+
+const eraTitles = {
+  es: {
+    'Edad Antigua': 'Edad Antigua',
+    'Edad Clásica': 'Edad Clásica',
+    'Edad Media': 'Edad Media',
+    'Edad Moderna': 'Edad Moderna',
+    'Edad Contemporánea': 'Edad Contemporánea',
+  },
+  en: {
+    'Edad Antigua': 'Ancient Age',
+    'Edad Clásica': 'Classical Age',
+    'Edad Media': 'Middle Ages',
+    'Edad Moderna': 'Modern Age',
+    'Edad Contemporánea': 'Contemporary Age',
+  },
+};
 
 const eras = [
   {
@@ -62,14 +80,18 @@ const eras = [
   },
 ];
 
-function EuropeanCivilizations({ setCurrentScreen }) {
+function EuropeanCivilizations({ setCurrentScreen, language }) {
   return (
     <div className="p-6 text-center">
-      <h2 className="text-3xl font-bold mb-6 text-blue-500">Civilizaciones de Europa</h2>
+      <h2 className="text-3xl font-bold mb-6 text-blue-500">
+        {language === 'es' ? 'Civilizaciones de Europa' : 'European Civilizations'}
+      </h2>
 
       {eras.map((era) => (
         <div key={era.title} className="mb-10">
-          <h3 className="text-2xl font-semibold mb-4 underline">{era.title}</h3>
+          <h3 className="text-2xl font-semibold mb-4 underline">
+            {eraTitles[language][era.title] || era.title}
+          </h3>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
             {era.civs.map((civ) => (
               <button
@@ -98,7 +120,7 @@ function EuropeanCivilizations({ setCurrentScreen }) {
         onClick={() => setCurrentScreen('continents')}
         className="mt-8 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-full transition"
       >
-        Volver a Continentes
+        {language === 'es' ? 'Volver a Continentes' : 'Back to Continents'}
       </button>
     </div>
   );
