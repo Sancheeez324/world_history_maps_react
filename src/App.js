@@ -6,7 +6,8 @@ import MapDetailScreen from './components/MapDetailScreen';
 import ContinentsScreen from './components/ContinentsScreen';
 import {
   EuropeanCivilizations,
-  AsianCivilizations
+  AsianCivilizations,
+  AfricanCivilizations
 } from './components/ContinentsCivis';
 
 import 'leaflet/dist/leaflet.css';
@@ -68,7 +69,8 @@ function App() {
       currentScreen === 'maps' ||
       currentScreen === 'continents' ||
       currentScreen === 'european_civs' ||
-      currentScreen === 'asian_civs'
+      currentScreen === 'asian_civs' ||
+      currentScreen === 'african_civs'
     ) {
       setCurrentScreen('globe');
     }
@@ -163,6 +165,13 @@ function App() {
         )}
         {currentScreen === 'asian_civs' && (
           <AsianCivilizations
+            setCurrentScreen={setCurrentScreen}
+            language={language}
+            currentText={currentText}
+          />
+        )}
+        {currentScreen === 'african_civs' && (
+          <AfricanCivilizations
             setCurrentScreen={setCurrentScreen}
             language={language}
             currentText={currentText}
