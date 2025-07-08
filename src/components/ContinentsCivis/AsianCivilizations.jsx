@@ -93,8 +93,12 @@ function AsianCivilizations({ setCurrentScreen, language, currentText }) {
                   alt={civ.name}
                   className="w-16 h-16 object-contain mb-2"
                 />
-                <span className="font-medium">{civ.name}</span>
-                <span className="text-sm text-gray-600 dark:text-gray-400">{civ.years}</span>
+                <span className="font-medium text-gray-900 dark:text-white text-center">
+                      {civ.name}
+                      </span>
+                      <span className="text-sm text-gray-600 dark:text-gray-400 text-center">
+                      {civ.years}
+                </span>
               </button>
             ))}
           </div>

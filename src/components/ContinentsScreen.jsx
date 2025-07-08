@@ -10,10 +10,31 @@ const continents = [
   { name: 'Oceanía', img: 'oceania.png', screen: 'oceania' },
 ];
 
-function ContinentsScreen({ setCurrentScreen }) {
+function ContinentsScreen({ setCurrentScreen, language }) {
+  const continentLabels = {
+    es: {
+      'África': 'África',
+      'América del Norte': 'América del Norte',
+      'América del Sur': 'América del Sur',
+      'Asia': 'Asia',
+      'Europa': 'Europa',
+      'Oceanía': 'Oceanía',
+    },
+    en: {
+      'África': 'Africa',
+      'América del Norte': 'North America',
+      'América del Sur': 'South America',
+      'Asia': 'Asia',
+      'Europa': 'Europe',
+      'Oceanía': 'Oceania',
+    }
+  };
+
   return (
     <div className="text-center p-6">
-      <h2 className="text-3xl font-bold mb-6 text-blue-500">Selecciona un Continente</h2>
+      <h2 className="text-3xl font-bold mb-6 text-blue-500">
+        {language === 'es' ? 'Selecciona un Continente' : 'Select a Continent'}
+      </h2>
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 justify-center">
         {continents.map((continent) => (
           <button
@@ -26,7 +47,9 @@ function ContinentsScreen({ setCurrentScreen }) {
               alt={continent.name}
               className="w-20 h-20 mb-2 object-contain"
             />
-            <span className="font-semibold">{continent.name}</span>
+            <span className="font-semibold text-gray-900 dark:text-white text-center">
+              {continentLabels[language][continent.name] || continent.name}
+            </span>
           </button>
         ))}
       </div>
