@@ -7,7 +7,9 @@ import ContinentsScreen from './components/ContinentsScreen';
 import {
   EuropeanCivilizations,
   AsianCivilizations,
-  AfricanCivilizations
+  AfricanCivilizations,
+  SouthAmericaCivilizations,
+  NorthAmericaCivilizations
 } from './components/ContinentsCivis';
 
 import 'leaflet/dist/leaflet.css';
@@ -70,7 +72,9 @@ function App() {
       currentScreen === 'continents' ||
       currentScreen === 'european_civs' ||
       currentScreen === 'asian_civs' ||
-      currentScreen === 'african_civs'
+      currentScreen === 'african_civs' ||
+      currentScreen === 'southamericans_civs' ||
+      currentScreen === 'northamericans_civs'
     ) {
       setCurrentScreen('globe');
     }
@@ -172,6 +176,20 @@ function App() {
         )}
         {currentScreen === 'african_civs' && (
           <AfricanCivilizations
+            setCurrentScreen={setCurrentScreen}
+            language={language}
+            currentText={currentText}
+          />
+        )}
+        {currentScreen === 'southamericans_civs' && (
+          <SouthAmericaCivilizations
+            setCurrentScreen={setCurrentScreen}
+            language={language}
+            currentText={currentText}
+          />
+        )}
+         {currentScreen === 'northamericans_civs' && (
+          <NorthAmericaCivilizations
             setCurrentScreen={setCurrentScreen}
             language={language}
             currentText={currentText}

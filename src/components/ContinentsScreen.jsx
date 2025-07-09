@@ -3,8 +3,8 @@ import React from 'react';
 
 const continents = [
   { name: 'África', img: 'africa.png', screen: 'african_civs' },
-  { name: 'América del Norte', img: 'north_america.png', screen: 'america_norte' },
-  { name: 'América del Sur', img: 'south_america.png', screen: 'america_sur' },
+  { name: 'América del Norte', img: 'north_america.png', screen: 'northamericans_civs' },
+  { name: 'América del Sur', img: 'south_america.png', screen: 'southamericans_civs' },
   { name: 'Asia', img: 'asia.png', screen: 'asian_civs' },
   { name: 'Europa', img: 'europa.png', screen: 'european_civs' },
   { name: 'Oceanía', img: 'oceania.png', screen: 'oceania' },
