@@ -8,7 +8,7 @@ Aplicación web educativa desarrollada con **React** que permite explorar civili
 
 - Navegación por continentes → civilizaciones → detalles históricos
 - Soporte multilenguaje: Español 🇨🇱 / Inglés 🇺🇸
-- 🖼Visualización de imágenes, fechas y descripciones clave
+- Visualización de imágenes, fechas y descripciones clave
 - Desempeño optimizado con **Vite**
 - Estructura modular por regiones y eras
 - Funciona completamente **offline** (versión local)
