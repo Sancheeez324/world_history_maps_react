@@ -16,13 +16,7 @@ Aplicación web educativa desarrollada con **React** que permite explorar civili
 
 ---
 
-##  Capturas de pantalla
-
-*(Agrega aquí imágenes del proyecto si quieres)*
-
----
-
-## 🛠 Tecnologías utilizadas
+## Tecnologías utilizadas
 
 - **React** (v18+)
 - **Vite** como bundler
@@ -33,7 +27,7 @@ Aplicación web educativa desarrollada con **React** que permite explorar civili
 
 ---
 
-##  Instalación local
+## Instalación local
 
 ```bash
 git clone https://github.com/tuusuario/mapas-historicos.git
